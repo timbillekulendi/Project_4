@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+	Timbille Kulendi
+	 22 October, 2014
+	 Introduction to Programming
+	 Project 3 - Game v0.3 
+-->
+	<head>
+		<title>
+			Maze Sprinter 
+		</title>
+		<style>
+			body {text-align:center;background-color:#800000;color:#FFFF00;font-family:Impact}
+		</style>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<a href="mailto:timbille.kulendi1@marist.edu"> Click here for help</a>
+		<script type="text/javascript" src="P4_script.js"></script>
+		</head>
+	<body onload="init();">
+		<h1>
+			The Maze Sprinter 
+		</h1>
+		<textarea id="taMain"
+			style="width:550px;height:350px;font-family:monospace;font-size:100%"></textarea>
+    
+		<br>
+		Command:       
+		<input type="text" 
+			id = "txtCommand"
+			name="txtCommand">
+
+		<input type="button"
+			value="Go" 
+			onclick="btnGo_click();" />                           
+       
+		<br>
+		<input type="button"
+			id = "North" 
+			value="North"
+			onclick="btnNorth_click();">
+		<br>
+		<input type="button"
+			id = "West" 
+			value="West"
+			onclick="btnWest_click();">
+		<input type="button"
+			id = "East" 
+            value="East"
+			onclick="btnEast_click();">
+		<br>
+		<input type="button"
+			id = "South" 
+			value="South"
+			onclick="btnSouth_click();">
+	</body>
+</html>
