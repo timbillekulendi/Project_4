@@ -13,7 +13,11 @@ var hasVisitedLoc3 = false; //Global variable to determine whether player has be
 var hasVisitedLoc4 = false; //Global variable to determine whether player has been in loc4.
 var hasVisitedLoc5 = false; //Global variable to determine whether player has been in loc5.
 var hasVisitedLoc6 = false; //Global variable to determine whether player has been in loc6.
-                  
+var hasVisitedLoc7 = false;
+var hasVisitedLoc8 = false;
+var hasVisitedLoc9 = false;
+var hasVisitedLoc10 = false; 
+var hasVisitedLoc11 = false;            
 //
 // Initialization
 //
@@ -152,6 +156,31 @@ function sector6() {
 	var message = "Desperate to get out of this maze of misery, you run deeper into the maze in search for an exit. May this have been a wrong call?";
 	displayMessage(message);
 }
+
+function sector7() {
+	var message = "";
+	displayMessage(message);
+}
+
+function sector8() {
+	var message = "";
+	displayMessage(message);
+}
+
+function sector9() {
+	var message = "";
+	displayMessage(message);
+}
+
+function sector10() {
+	var message = "";
+	displayMessage(message);
+}
+
+function sector11() {
+	var message = "";
+	displayMessage(message);
+}	
                   
 //
 // Story / Locale Functions
@@ -185,12 +214,22 @@ function look() {
                	document.getElementById("South").disabled = false; //In the case that the button is required, they are activated here.
     			document.getElementById("West").disabled = false; //In the case that the button is required, they are activated here.
 				break;
-	            case 5:  sector5();    
+	        case 5:  sector5();    
     	        document.getElementById("East").disabled = false; //In the case that the button is required, they are activated here.
 				break;
-            	case 6: sector6();
+        	case 6: sector6();
                	document.getElementById("North").disabled = false; //In the case that the button is required, they are activated here.
 				break;	
+	        case 7: sector7();
+	        	break;
+	        case 8: sector8();
+	        	break;
+	        case 9: sector9();
+	        	break;
+	        case 10: sector10();
+	        	break;
+	        case 11: sector11();
+	        	break;
 	            default: "You can't go there!! *Evil Laugh*";
     	    }
 	checkScore(); //Calls the function responsible for calculating the score and displays it in the text area.
