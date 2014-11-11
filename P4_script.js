@@ -43,9 +43,15 @@ function btnNorth_click() { //This allows the player to go north when possible.
 				if (currentLoc === 6) {
 					currentLoc = 2;
 					look();      	               
-				} 
-					else { //Displays the error message when the player goes the wrong way.
-						navigationError(); 
+				}
+					else {
+						if (currentLoc === 9) {
+							currentLoc = 1;
+							look();
+						} 
+							else { //Displays the error message when the player goes the wrong way.
+								navigationError(); 
+							}
 					}
     	    }		            
         }
@@ -65,9 +71,15 @@ function btnSouth_click() { //This allows the player to go south when possible.
 					if (currentLoc === 4) { //If the players current location is loc4, moving north would change their location to loc0.
 						currentLoc = 0;
 						look();           
-					} 
-					else { //Displays the error message when the player goes the wrong way.
-						navigationError(); 
+					}
+						else {
+							if (currentLoc === 1) {
+								currentLoc = 9;
+								look();
+							} 
+								else { //Displays the error message when the player goes the wrong way.
+									navigationError(); 
+							}
 					}
             	}
 	        }
@@ -88,8 +100,20 @@ function btnEast_click() { //This allows the player to go east when possible.
 					currentLoc = 4;
 					look();
 				} 
-					else { //Displays the error message when the player goes the wrong way.
-						navigationError(); 
+					else {
+						if (currentLoc === 4) {
+							currentLoc = 7;
+							look();
+						}
+							else {
+								if (currentLoc === 1) {
+									currentLoc = 8;
+									look();
+								}	
+									else { //Displays the error message when the player goes the wrong way.
+										navigationError(); 
+									}
+							}
 	              	}
 			}
 		}
@@ -110,78 +134,24 @@ function btnWest_click() { //This allows the player to go west when possible.
 						currentLoc = 5;
 						look();
 					} 
-						else { //Displays the error message when the player goes the wrong way.
-							navigationError(); 
+						else {
+							if (currentLoc === 7) {
+								currentLoc = 4;
+								look();
+							}
+								else {
+									if (currentLoc === 8) {
+										currentLoc = 1;
+										look();
+									}	
+										else { //Displays the error message when the player goes the wrong way.
+											navigationError(); 
+										}
+								}
 						}
 				}
 		}
 }
-//
-//Event handlers for each location
-//
-//Functions here will handle the various locations of the game.
-//displayMessage(Message) enables message variables to be declared in the text area. 
-         	
-function theGlades() { 
-	var message = "0. You're in the glade, a small square shaped living space in the middle of the maze. Is there any hope of ever escaping?";
-	displayMessage(message);
-}
-		
-function sector1() {
-	var message = "1. You've been going through the maze for hours and end up in Thornhill, an enormous unkept plantation full of venomous plants.";
-	displayMessage(message);		
-	}
-		
-function sector2() {
-	var message = "2. The night sky begins to dawn, you begin to hear the long doleful cry of the Grievers fill the air. You don't want to end up one on one with a Griever. You still have time to save yourself!";
-	displayMessage(message);
-	}
-			
-function sector3() {
-	var message = "3. You are moving quickly towards what appears to be a opening to a whole new sector which could lead to the exit point of the maze. There is a sudden force restraining you from moving any further, You realise you are stuck in quick sand and need to work something out fast before you are completely submerged. Luckily you grab hold of some vines and pull yourself to safety. Luck seems to be on your side.";
-	displayMessage(message);		
-	}
-		
-function sector4() {
-	var message = "Certain you had found a way out, you go down an unusual path till you meet a dead-end. I advice you hed back before something *evil* has you trapped in!";
-	displayMessage(message);
-	}
-		
-function sector5() {
-	var message = "You make your your to a room within the walls of the maze. it just might seem you could escape. But guess what? You would never know until the next project! *Evil Laugh*"; 
-	displayMessage(message);
-}
-		
-function sector6() {
-	var message = "Desperate to get out of this maze of misery, you run deeper into the maze in search for an exit. May this have been a wrong call?";
-	displayMessage(message);
-}
-
-function sector7() {
-	var message = "";
-	displayMessage(message);
-}
-
-function sector8() {
-	var message = "";
-	displayMessage(message);
-}
-
-function sector9() {
-	var message = "";
-	displayMessage(message);
-}
-
-function sector10() {
-	var message = "";
-	displayMessage(message);
-}
-
-function sector11() {
-	var message = "";
-	displayMessage(message);
-}	
-                  
 //
 // Story / Locale Functions
 //
@@ -202,6 +172,8 @@ function look() {
                	break;
 			case 1: sector1();
     	        document.getElementById("North").disabled = false; //In the case that the button is required, they are activated here.
+    	        document.getElementById("East").disabled = false; //In the case that the button is required, they are activated here.
+    	        document.getElementById("South").disabled = false; //In the case that the button is required, they are activated here.
 				break; 
             case 2: sector2();
                	document.getElementById("South").disabled = false; //In the case that the button is required, they are activated here.
@@ -213,6 +185,7 @@ function look() {
       		case 4: sector4();
                	document.getElementById("South").disabled = false; //In the case that the button is required, they are activated here.
     			document.getElementById("West").disabled = false; //In the case that the button is required, they are activated here.
+    			document.getElementById("East").disabled = false; //In the case that the button is required, they are activated here.
 				break;
 	        case 5:  sector5();    
     	        document.getElementById("East").disabled = false; //In the case that the button is required, they are activated here.
@@ -221,20 +194,20 @@ function look() {
                	document.getElementById("North").disabled = false; //In the case that the button is required, they are activated here.
 				break;	
 	        case 7: sector7();
+	        	document.getElementById("West").disabled = false; //In the case that the button is required, they are activated here.
 	        	break;
 	        case 8: sector8();
+	        	document.getElementById("West").disabled = false; //In the case that the button is required, they are activated here.
 	        	break;
 	        case 9: sector9();
+	        	document.getElementById("North").disabled = false; //In the case that the button is required, they are activated here.
 	        	break;
 	        case 10: sector10();
 	        	break;
 	        case 11: sector11();
 	        	break;
-	            default: "You can't go there!! *Evil Laugh*";
+	            default: desc = "You can't go there!! *Evil Laugh*";
     	    }
-	checkScore(); //Calls the function responsible for calculating the score and displays it in the text area.
-		desc = desc + "\n" + "Score: " + score
-		displayMessage(desc);
 }
 			
 
@@ -271,14 +244,26 @@ function checkScore() { // This function is responsible for calculating the scor
 							score = score + 5;
 							hasVisitedLoc4 = true;
 						} 
-							else if ( (! hasVisitedLoc5) && (currentLoc === 3) ) {            
+							else if ( (! hasVisitedLoc5) && (currentLoc === 5) ) {            
 								score = score + 5;
 								hasVisitedLoc5 = true;
 							}
-								else if ( (! hasVisitedLoc6) && (currentLoc === 4) ) {            
+								else if ( (! hasVisitedLoc6) && (currentLoc === 6) ) {            
 									score = score + 5;
 									hasVisitedLoc6 = true;
 								} 
+									else if ( (! hasVisitedLoc7) && (currentLoc === 7) ) {            
+										score = score + 5;
+										hasVisitedLoc6 = true;
+									} 
+										else if ( (! hasVisitedLoc8) && (currentLoc === 8) ) {            
+											score = score + 5;
+											hasVisitedLoc6 = true;
+										} 
+											else if ( (! hasVisitedLoc9) && (currentLoc === 9) ) {            
+												score = score + 5;
+												hasVisitedLoc6 = true;
+											} 
 }
 				
          
@@ -299,10 +284,21 @@ function btnGo_click () { //Handles the logic to the text input box that allows 
 }
 
 //
+//Inventory functions
+//
+
+
+//
 // Utility Function(s)
 //
 		
 function displayMessage(msg) {
-var target = document.getElementById("taMain");
-target.value = msg + "\n\n" + target.value;
+	var target = document.getElementById("taMain");
+	target.value = msg + "\n\n" + target.value;
+}
+
+function btnHelp_Click() {
+	var helpMsg = "You are currently about to play or playing The Maze Sprinter." + "\n\n" + "In this game you can use the directional buttons to navigate about the maze and find a way out. You can also type in the commands N, S, E, W, n, s, e, w, north, south, east, west into the command bar to navigate around the maze." + "\n\n" + "For every location you visit the first time, you are rewarded 5 points." + "\n\n" + "You can also pick up items in the different locations that would aid you in navigating the maze." + "\n\n" + "If you are still in need of for help, I'm just a hyperlink away! :)"
+	var targetTextArea = document.getElementById("taMain");
+	targetTextArea.value = helpMsg;
 }
